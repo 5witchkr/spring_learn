@@ -3,6 +3,8 @@ package com.example.jpa;
 
 import com.example.jpa.onetoone.Person;
 import com.example.jpa.onetoone.PersonRepository;
+import com.example.jpa.onetoone.doulbeway.House;
+import com.example.jpa.onetoone.doulbeway.HouseRepository;
 import com.example.jpa.onetoone.singleway.Company;
 import com.example.jpa.onetoone.singleway.CompanyRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -24,6 +26,9 @@ public class OnetoOneTest {
     @Autowired
     private PersonRepository personRepository;
 
+    @Autowired
+    private HouseRepository houseRepository;
+
     @DisplayName("one to one single mapping Test")
     @Test
     void testCompany() {
@@ -40,6 +45,25 @@ public class OnetoOneTest {
 
         // then
         assertThat(companyRepository.findAll()).isNotEmpty();
+        assertThat(personRepository.findAll()).isNotEmpty();
+    }
+
+    @DisplayName("one to one double mapping Test")
+    @Test
+    void testHouse() {
+        // given
+        Person person = new Person();
+        person.setName("Dori");
+
+        House house = new House();
+        house.setAddress("Jinju");
+        house.setPerson(person);
+
+        // when
+        houseRepository.save(house);
+
+        // then
+        assertThat(houseRepository.findAll()).isNotEmpty();
         assertThat(personRepository.findAll()).isNotEmpty();
     }
 }
