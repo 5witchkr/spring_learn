@@ -10,19 +10,19 @@ import java.util.concurrent.Callable;
 @RestController
 public class CallableController {
 
-//    @GetMapping("/callable")
-//    public Callable<String> callableView() throws InterruptedException {
-//        log.info("callable");
-//        return () -> {
-//            log.info("async");
-//            Thread.sleep(2000);
-//            return "Hello";
-//        };
-//    }
     @GetMapping("/callable")
-    public String callable() throws InterruptedException {
-        log.info("async");
-        Thread.sleep(2000);
-        return "hello";
+    public Callable<String> callableView() throws InterruptedException {
+        log.info("callable");
+        return () -> {
+            log.info("async");
+            Thread.sleep(2000);
+            return "Hello";
+        };
     }
+//    @GetMapping("/callable")
+//    public String callable() throws InterruptedException {
+//        log.info("async");
+//        Thread.sleep(2000);
+//        return "hello";
+//    }
 }
