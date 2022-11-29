@@ -51,4 +51,8 @@ public class CallableController {
         }
         return "OK";
     }
+
+
+    //ResponseBodyEmitter (spring 4.~ 이상
+    //streaming response
 }
