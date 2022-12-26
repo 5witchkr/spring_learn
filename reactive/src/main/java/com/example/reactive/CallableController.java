@@ -53,6 +53,6 @@ public class CallableController {
     }
 
 
-    //ResponseBodyEmitter (spring 4.~ 이상
+    //ResponseBodyEmitter (spring 4.2 이상
     //streaming response
 }
